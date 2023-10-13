@@ -12,10 +12,15 @@ const Content = () => {
     console.log("Clicked")
   }
 
+  const handleSubmit2 = (name) => {
+    console.log(`${name} was clicked`)
+  }
+
   return (
     <main>
       <p>Hello {handleNameChange()}</p>
-      <button onClick={handleSubmit}>Submit</button>
+      <button onClick={handleSubmit}>Submit</button> <br/>
+      <button onClick={() => handleSubmit2('Derro')}>Submit2</button>
     </main>
   )
 }
