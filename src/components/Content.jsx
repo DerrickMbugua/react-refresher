@@ -1,11 +1,14 @@
 import React from 'react'
+import { useState } from 'react';
 
 const Content = () => {
 
+  const [name, setName] = useState('Derrick');
+  const [count, setCount] = useState(0)
   const handleNameChange = () => {
-    const names = ['Derrick', 'Mbugua', 'Mwema'];
+    const names = ['Sparta', 'Mbugua', 'Mwema'];
     const int = Math.floor(Math.random() * 3);
-    return names[int];
+    setName(names[int]);
   }
 
   const handleSubmit = () => {
@@ -16,10 +19,17 @@ const Content = () => {
     console.log(`${name} was clicked`)
   }
 
+  const increment = () => {
+    // setCount((prevState)=> prevState +1 )
+    setCount(count + 1)
+  }
+
   return (
     <main>
-      <p>Hello {handleNameChange()}</p>
-      <button onClick={handleSubmit}>Submit</button> <br/>
+      <p>Hello {name}</p><br />
+      <p>{count}</p><br />
+      <button onClick={increment}>Increment</button> <br />
+      <button onClick={handleNameChange}>Change Name</button> <br />
       <button onClick={() => handleSubmit2('Derro')}>Submit2</button>
     </main>
   )
